@@ -1,8 +1,10 @@
 <script>
     export let customerDetails;
+    export let isFirstRow;
 </script>
 
     <table>
+        {#if isFirstRow}
         <thead>
             <tr>
                 {#each Object.keys(customerDetails) as key}
@@ -10,7 +12,8 @@
                 {/each}
               </tr>
         </thead>
-        
+        {/if}
+
         <tbody>
             <tr>
                 {#each Object.entries(customerDetails) as [key, value]}
