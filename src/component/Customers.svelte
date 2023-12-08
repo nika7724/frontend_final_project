@@ -15,6 +15,8 @@
 
 <section>
     {#each customers as customerInfo, i}
+    <!-- {#each customers as customerInfo}
+    <CustomerList customerDetails={customerInfo} /> -->
         <CustomerList customerDetails={customerInfo} isFirstRow={i === 0} />
-    {/each}
+           {/each} 
 </section>
