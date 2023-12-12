@@ -13,7 +13,9 @@
   onMount(fetchStatuses);
 
   async function createCustomer() {
-  fetch(`http://localhost:8080/customer?statusId=${customerDetail.statusId}`, {
+    const createCustomerApi = `http://localhost:8080/customer?statusId=${customerDetail.statusId}`;
+    try {
+      const endpointCreate = await fetch(createCustomerApi, {
       method: "POST",
       body: JSON.stringify({
         firstName: customerDetail.firstName,
@@ -24,10 +26,14 @@
       headers: {
         "Content-Type": "application/json; charset=UTF-8"
       }
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    });
+    const data = await endpointCreate.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }
+
 </script>
 
 <div class="container">

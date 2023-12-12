@@ -1,6 +1,46 @@
 <script>
     export let customerDetails;
     export let isFirstRow;
+
+  
+  async function deleteCustomer(id) {
+    try {
+  const response = await fetch(`http://localhost:8080/customer/` + id, {
+  method: 'DELETE', 
+  headers: {
+  'Content-type': 'application/json; charset=UTF-8',  
+ },
+})
+ if (response.ok) {
+        document.location.reload();
+    }
+    return response;
+  } catch (error) {
+      console.error('Error:', error);
+    }
+}
+
+async function editCustomer(id) {
+  const editCustomerApi = `http://localhost:8080/customer/` + id;
+  try{
+  const request = await fetch (editCustomerApi, {
+  method: 'PUT', 
+  body:  JSON.stringify(customerDetails),
+  headers: {
+        "Content-Type": "application/json; charset=UTF-8"
+      }
+  });
+  if (request.ok) {
+      const response = await request.json();
+      console.log(response);
+    } else {
+      console.error('Error:', request.statusText);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+    
 </script>
 
     <table>
@@ -25,10 +65,8 @@
                   {/if}
                 {/each}
                 <td>
-                    <button class = "edit_btn">Edit</button>
-                    <button class = "delete_btn">Delete</button>
-                    <button class = "create_btn">Create</button>
-                  </td>
+                  <button type="button" on:click={() =>editCustomer(customerDetails.id)}>Edit</button>
+                  <button type="button" on:click={() =>deleteCustomer(customerDetails.id)}>Delete</button></td>
             </tr>
         </tbody>
     </table>
@@ -37,7 +75,8 @@
       th,
       td {
         border: 1px solid;
-        width: 135px;
+        width: 150px;
+        height: 50px;
           }
     
       </style>

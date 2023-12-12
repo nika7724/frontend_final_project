@@ -10,13 +10,21 @@
         const res = await response.json();
         console.log(res);
         customers = res;
+        if (response.status == 200) {
+            console.log(response.status);
+        } else {
+            console.log("An error occured");
+            console.log(request.status);
+        }
     });
 </script>
 
 <section>
     {#each customers as customerInfo, i}
-    <!-- {#each customers as customerInfo}
+        <!-- {#each customers as customerInfo}
     <CustomerList customerDetails={customerInfo} /> -->
         <CustomerList customerDetails={customerInfo} isFirstRow={i === 0} />
-           {/each} 
+    {/each}
 </section>
+
+<div><button class="create_btn">Create</button></div>
