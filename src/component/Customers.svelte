@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import CustomerList from "./CustomerList.svelte";
+    import CreateCustomer from "./CreateCustomer.svelte";
     let customers = [];
 
     const customerList = "http://localhost:8080/customers";
@@ -27,4 +28,8 @@
     {/each}
 </section>
 
-<div><button class="create_btn">Create</button></div>
+<div>
+    <a href="/createcustomer">
+      <button class="create_btn" component={CreateCustomer} on:click>Create</button>
+    </a>
+  </div>
