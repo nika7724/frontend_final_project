@@ -36,9 +36,9 @@
 
 </script>
 
+<div class="customer-header">CREATE CUSTOMER</div>
+
 <div class="container">
-  <div class="customer-header">VIP Customer</div>
-  <div class="customer-body">
     <form action="" method="post" class="create_customer" id="create_customer">
       <label for="firstName">FirstName</label>
       <input
@@ -83,7 +83,61 @@
           <option value={statusData.id}>{statusData.statusName}</option>
         {/each}
       </select>
-      <button type="button" on:click={createCustomer}>Add</button>
+      <button type="button" on:click={createCustomer}>Save</button>
     </form>
   </div>
-</div> 
+
+<style>
+
+.container {
+    background-color: #f7ddc6;
+    width: 600px;
+    height: 550px;
+    margin-left: 400px;
+  }
+
+  label {
+    font-size:var(--text-font-size) ;
+    color: #0d5f41;
+    display: inline-block;
+    width: 300px;
+    height: 30px;
+    margin-top: 30px;
+    margin-left: 150px;
+}
+
+.customer-header {
+   padding-left: 520px;
+    margin-bottom: 22px;
+  font-size: 35px; 
+  color:#0d5f41;
+}
+
+
+input, select{
+    width: 300px;
+    height: 30px;
+    border: none;
+    background-color: white;
+    color:#0d5f41;
+    margin-left: 150px;
+}
+
+button {
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    margin-left: 10px;
+    position:absolute;
+    top:555px;
+    left:650px;
+    background: #0d5f41;
+    color:white;
+    border: none;
+}
+
+button:hover {
+    color:lightgray;
+}
+
+  </style>

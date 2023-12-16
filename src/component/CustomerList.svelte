@@ -57,6 +57,14 @@
   }
 </script>
 
+{#if isFirstRow}
+<div class ="title">
+  CUSTOMER LIST
+</div>
+{/if}
+
+
+<div class ="container">
 <table>
   {#if isFirstRow}
     <thead>
@@ -102,12 +110,30 @@
     </tr>
   </tbody>
 </table>
+</div>
 
 <style>
+  .container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
   th,
   td {
     border: 1px solid;
     width: 150px;
     height: 50px;
+    border-color: #0d5f41;
+  }
+
+  .title {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+  font-size: 35px; 
+  color:#0d5f41;
   }
 </style>
