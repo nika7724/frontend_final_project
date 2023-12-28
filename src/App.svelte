@@ -4,31 +4,43 @@
   import Home from "./component/Home.svelte";
   import Product from "./component/Product.svelte";
   import Documentation from "./component/Documentation.svelte";
+  import Login from "./component/Login.svelte";
+  import Register from "./component/Register.svelte";
   import { Router, Route } from "svelte-routing";
+    import Dashboard from "./component/Dashboard.svelte";
+
+// let isLoggedIn = localStorage.getItem('isLoggedIn')==='true';
+
 </script>
 
   <div class="sidebar">
     <div class="title">
       Menu
   </div>
+  
 <ul class="links">
 	<li><a href="/home" component={Home} on:click>Home</a></li>
+  <li><a href="/login" component={Login} class="btn btn-outline-light me-2">Login</a></li> 
+	<li><a href="/register" component={Register} class="btn btn-outline-light me-2">UserRegister</a></li>
   <li><a href="/customers" component={Customers} on:click>Customer</a></li>  
 	<li><a href="/createcustomer" component={CreateCustomer} on:click>Create</a></li>
   <li><a href="/product" component={Product} on:click>Product</a></li> 
 	<li><a href="/documentation" component={Documentation} on:click>Documentation</a></li> 
-
-</ul>
+ </ul>
 </div>
 
 
+
 <Router>
-  <Route path="/home" component={Home} />
+  <Route path="/dashboard" component={Dashboard} />
+    <Route path="/home" component={Home} />
   <Route path="/customers" component={Customers} />
   <Route path="/createcustomer" component={CreateCustomer} />
   <Route path="/product" component={Product} />
   <Route path="/documentation" component={Documentation} />
-</Router>
+   <Route path="/login" component={Login} />
+  <Route path="/register" component={Register} />
+  </Router>
 
 
 <style>

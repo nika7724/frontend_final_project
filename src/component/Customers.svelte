@@ -3,7 +3,16 @@
     import CustomerList from "./CustomerList.svelte";
     import CreateCustomer from "./CreateCustomer.svelte";
     let customers = [];
+    let role =[];
 
+//     async function fetchRoles() {
+//     const response = await fetch("http://localhost:8080/roles");
+//     const data = await response.json();
+//     role = data;
+//   }
+//   onMount(fetchRoles);
+
+  
     const customerList = "http://localhost:8080/customers";
 
     onMount(async () => {
@@ -33,3 +42,10 @@
       <button class="create_btn" component={CreateCustomer} on:click>Create</button>
     </a>
   </div>
+
+  <style>
+button {
+    margin-left: 250px;
+}
+
+    </style>
