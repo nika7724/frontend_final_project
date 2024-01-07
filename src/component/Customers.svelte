@@ -45,7 +45,17 @@
 
   <style>
 button {
-    margin-left: 250px;
+    position: relative;
+    top: 38px;
+    right:-588px;
+    border: #0d5f41;
+    color: white;
+    background-color: #0d5f41;
+    font-size: 15px;
+    height: 40px;
+    width: 100px;
+    text-align: center;
 }
+
 
     </style>

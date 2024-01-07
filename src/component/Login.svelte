@@ -1,8 +1,10 @@
 <script>
+    import Register from "./Register.svelte";
+
     // import axios from "axios";
     let userDetails ={username: "", password: ""};
     
-    function registerSubmit() {
+    function loginSubmit() {
         // axios.post('http://localhost:8080/auth/login', {
         //                 username: userDetails.username,
         //         password: userDetails.password
@@ -30,10 +32,16 @@
         });
     }
     </script>
+
+<div>
+    <a href="/register">
+      <button class="register_btn" component={Register} on:click>Register</button>
+    </a>
+  </div>
     
     <main class="container">
-        <form on:submit|preventDefault={registerSubmit}>
-            <h2 class="register">Please login</h2>
+        <form on:submit|preventDefault={loginSubmit}>
+            <h3 class="register">Login</h3>
     
             <div class="form-floating">
                 <label for="username">Userame</label>
@@ -45,15 +53,17 @@
                 <input bind:value={userDetails.password} id="password" type="password"  placeholder="Password" required autocomplete="off">
             </div>
     
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+            <button class="submit_button" type="submit">Submit</button>
         </form>
     </main>
-    
+   
     <style>
     
         .register {
             margin-left: 10px;
+            margin-top: 100px;
             color: #0d5f41;
+
         }
         
         .container {
@@ -82,13 +92,27 @@
         margin-left: 50px;
     }
     
+    .register_btn {
+        width: 80px;
+        height: 20px;
+        text-align: center;
+        margin-left: 10px;
+        position:absolute;
+        top:105px;
+        left:810px;
+        background: white;
+        color:#0d5f41;
+        border: none;
+
+    }
+
     button {
         width: 80px;
         height: 40px;
         text-align: center;
         margin-left: 10px;
         position:absolute;
-        top:320px;
+        top:390px;
         left:660px;
         background: #0d5f41;
         color:white;

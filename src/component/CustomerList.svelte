@@ -136,4 +136,14 @@
   font-size: 35px; 
   color:#0d5f41;
   }
+
+  button {
+    background-color: #0d5f41;
+    border: white solid 1px;
+    height: 23px;
+    width: 70px;
+    color: white;
+    font-size:15px;
+    text-align: center;
+  }
 </style>

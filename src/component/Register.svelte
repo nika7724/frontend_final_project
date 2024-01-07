@@ -1,6 +1,7 @@
 <script>
     import axios from "axios";
 import { navigate } from 'svelte-routing';
+    import Login from "./Login.svelte";
 
     let userDetails = { username: "", password: "" };
 
@@ -45,7 +46,7 @@ import { navigate } from 'svelte-routing';
 
 <main class="container">
     <form on:submit|preventDefault={registerSubmit}>
-        <h2 class="register">Please register</h2>
+        <h3 class="register">Register</h3>
 
         <div class="form-floating">
             <label for="username">Userame</label>
@@ -77,11 +78,19 @@ import { navigate } from 'svelte-routing';
     </form>
 </main>
 
+<div>
+    <a href="/login">
+      <button class="register_btn" component={Login} on:click>Login</button>
+    </a>
+  </div>
+
 <style>
-    .register {
-        margin-left: 10px;
-        color: #0d5f41;
-    }
+  .register {
+            margin-left: 10px;
+            margin-top: 100px;
+            color: #0d5f41;
+
+        }
 
     .container {
         background-color: #f7ddc6;
@@ -109,16 +118,30 @@ import { navigate } from 'svelte-routing';
         margin-left: 50px;
     }
 
+    .register_btn {
+        width: 80px;
+        height: 20px;
+        text-align: center;
+        margin-left: 10px;
+        position:absolute;
+        top:105px;
+        left:810px;
+        background: white;
+        color:#0d5f41;
+        border: none;
+
+    }
+
     button {
         width: 80px;
         height: 40px;
         text-align: center;
         margin-left: 10px;
-        position: absolute;
-        top: 320px;
-        left: 660px;
+        position:absolute;
+        top:390px;
+        left:660px;
         background: #0d5f41;
-        color: white;
+        color:white;
         border: none;
     }
 
