@@ -13,7 +13,7 @@
 //   onMount(fetchRoles);
 
   
-    const customerList = "http://localhost:8080/customers";
+    const customerList = "http://localhost:8080/api/customers";
 
     onMount(async () => {
         const response = await fetch(customerList);

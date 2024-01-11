@@ -8,7 +8,7 @@
 
   async function deleteCustomer(id) {
     try {
-      const response = await fetch(`http://localhost:8080/customer/` + id, {
+      const response = await fetch(`http://localhost:8080/api/customer/` + id, {
         method: "DELETE",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -24,7 +24,7 @@
   }
 
   async function editCustomer(id) {
-    const editCustomerApi = `http://localhost:8080/customer/` + id;
+    const editCustomerApi = `http://localhost:8080/api/customer/` + id;
     try {
       const request = await fetch(editCustomerApi, {
         method: "PUT",

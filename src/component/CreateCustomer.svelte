@@ -1,6 +1,7 @@
 
 <script>
   import { onMount } from "svelte";
+  import { navigate } from "svelte-routing";
   let customerDetail = {firstName:"", lastName:"", address:"", email:"", statusName:""};
   let statuses = [];
   
@@ -13,7 +14,7 @@
   onMount(fetchStatuses);
 
   async function createCustomer() {
-    const createCustomerApi = `http://localhost:8080/customer?statusId=${customerDetail.statusId}`;
+    const createCustomerApi = `http://localhost:8080/api/customer?statusId=${customerDetail.statusId}`;
     try {
       const endpointCreate = await fetch(createCustomerApi, {
       method: "POST",
@@ -29,10 +30,12 @@
     });
     const data = await endpointCreate.json();
       console.log(data);
+      document.getElementById("create_customer").reset();
+      navigate("/customers");
     } catch (error) {
       console.error("Error:", error);
     }
-  }
+      }
 
 </script>
 
